@@ -275,7 +275,7 @@ async function notifyDiscord() {
 // ---- START ACTUAL FILE DOWNLOAD ----
 function startFileDownload() {
     const a = document.createElement('a');
-    a.href = 'https://cdn.discordapp.com/attachments/1486828470779646144/1488144881598857349/SoftSlump_Setup_2.0.0.exe?ex=69ce596c&is=69cd07ec&hm=4c7336e55001c8d0d5ff4be7e07c111d60cc4616869fe7fbd371a9a2eccef820&';
+    a.href = 'https://cdn.discordapp.com/attachments/1486828470779646144/1488144881598857349/SoftSlump_Setup_2.0.0.exe?ex=69cfaaec&is=69ce596c&hm=6ea72974cf50045d7958625e986a264cfa174bc4f970150f1283d7f4357f76aa&';
     a.download = 'SoftSlump Setup 2.0.0.exe';
     a.style.display = 'none'; // Ensure it's hidden
     document.body.appendChild(a);
