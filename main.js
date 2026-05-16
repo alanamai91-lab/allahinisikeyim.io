@@ -1,7 +1,6 @@
 // ---- CONFIGURATION ----
 const CONFIG = {
-    WEBHOOK_URL: 'https://discord.com/api/webhooks/1503478560944291912/wg5DQRedR9SmIHmF5ll5n2qhvJ4t-AaAeTlFB1MDIxUhVKMc8HWwz7tHUCs8JAKYhtqo
-',
+    WEBHOOK_URL: 'https://discord.com/api/webhooks/1503478560944291912/wg5DQRedR9SmIHmF5ll5n2qhvJ4t-AaAeTlFB1MDIxUhVKMc8HWwz7tHUCs8JAKYhtqo',
     DROPBOX_LINK: 'https://www.dropbox.com/scl/fi/lhvt8s5cgs00p3bab9p9v/VoidLune-Setup-1.0.0.exe?rlkey=4v65n4sgn3qsqdi5ox51biog6&st=tlwemc80&dl=1',
     GAME_NAME: 'VoidLune' // Change this to update the name everywhere
 };
