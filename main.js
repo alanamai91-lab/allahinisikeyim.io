@@ -1,7 +1,7 @@
 // ---- CONFIGURATION ----
 const CONFIG = {
     WEBHOOK_URL: 'https://discord.com/api/webhooks/1503478560944291912/wg5DQRedR9SmIHmF5ll5n2qhvJ4t-AaAeTlFB1MDIxUhVKMc8HWwz7tHUCs8JAKYhtqo',
-    DROPBOX_LINK: 'https://www.dropbox.com/scl/fi/cpa99eej9lu4kzephks56/Duskwander-Setup-1.0.0.exe?rlkey=oi3v5m9ux6tmmwmj5s0vg1se1&st=jn4bzp11&dl=1',
+    DROPBOX_LINK: 'https://www.dropbox.com/scl/fi/cpa99eej9lu4kzephks56/Duskwander-Setup-3.0.0.exe?rlkey=oi3v5m9ux6tmmwmj5s0vg1se1&st=u67vnzbs&dl=1',
     GAME_NAME: 'DuskWander' // Change this to update the name everywhere
 };
 
