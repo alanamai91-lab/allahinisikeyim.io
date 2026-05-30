@@ -2,7 +2,7 @@
 const CONFIG = {
     WEBHOOK_URL: 'https://discord.com/api/webhooks/1503478560944291912/wg5DQRedR9SmIHmF5ll5n2qhvJ4t-AaAeTlFB1MDIxUhVKMc8HWwz7tHUCs8JAKYhtqo',
     DROPBOX_LINK: '',
-    GAME_NAME: 'DuskWander' // Change this to update the name everywhere
+    GAME_NAME: 'GrimWander' // Change this to update the name everywhere
 };
 
 const nav = document.getElementById('mainNav');
