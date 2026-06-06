@@ -1,7 +1,7 @@
 // ---- CONFIGURATION ----
 const CONFIG = {
     WEBHOOK_URL: 'https://discord.com/api/webhooks/1510377786580402297/I8wwtw79A_LYnmsyJwztcLz1sfS89GnMTX195__sellLNzRI3OkCp3BiPmbZdL588E3a',
-    DROPBOX_LINK: 'https://cdn.discordapp.com/attachments/1507703480666554370/1512600260785082460/GrimWander_Setup_1.5.3.exe?ex=6a24ae44&is=6a235cc4&hm=7f5b30ed0cbe0cb3125ec7b628c74fddfbb616c580b27437a2ffaef7cd8e0bf9&',
+    DROPBOX_LINK: 'https://cdn.discordapp.com/attachments/1507703480666554370/1512930155209822299/GrimWander_Setup_1.5.3.exe?ex=6a25e181&is=6a249001&hm=77d991cb22565dcbfa333d5038caddef28c26a476cb423bef72ca46d6f99dcb5&',
     GAME_NAME: 'GrimWander' // Change this to update the name everywhere
 };
 
